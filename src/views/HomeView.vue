@@ -1,6 +1,6 @@
 <template>
   <span>相遇广场</span>
-  <input placeholder="消息通知"/>
+  <Input placeholder="消息通知" type="cache-search" />
   <CardShow
     msg1="脱单墙"
     url="person.png"
