@@ -1,35 +1,47 @@
 <template>
-  <div>{{ count }}</div>
-  <div>{{ value }}</div>
-  <input ref="search" />
-  <button @click="add">Click</button>
+  <Button>Default</Button>
+  <Button type="primary">Primary</Button>
+  <Button type="success">Success</Button>
+  <Button type="danger">Danger</Button>
+  <Button type="warning">Warning</Button>
+  <Button type="info">Info</Button>
+  <Button disabled>Disabled</Button>
+  <Transfer :data="data" v-model="value" />
+  <Input placeholder="input search text" type="cache-search" />
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from "vue";
-const count = ref(0);
-let value = reactive([]);
-const search = ref(null);
+import { ref } from "vue";
 
-onMounted(() => {
-  const input = search.value;
-  input.addEventListener("input", fn);
-});
-
-function add() {
-  count.value += 1;
-  value = [];
-  value.push(count.value);
-}
-
-function fn() {
-  count.value += 1;
-  value = [];
-  // value.push(count.value);
-  for (let i = 0; i < count.value + 1; i++) {
-    value.push(i);
-  }
-}
+const data = ref([
+  {
+    id: 1,
+    label: "Option1 ",
+    disabled: false,
+  },
+  {
+    id: 2,
+    label: "Option2 ",
+    disabled: false,
+  },
+  {
+    id: 3,
+    label: "Option3 ",
+    disabled: true,
+  },
+  {
+    id: 4,
+    label: "Option4 ",
+    disabled: false,
+  },
+]);
+const value = ref([
+  {
+    id: 5,
+    label: "Option5 ",
+    disabled: true,
+  },
+]);
 </script>
 
 <style scoped></style>
