@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import flyd from "fly-design/index.mjs";
-import "fly-design/style.css";
+// import Input from "fly-design/Input/index.mjs";
+// import "fly-design/Input/style.css";
 
 const app = createApp(App);
-app.use(flyd);
+// app.use(Input);
 app.mount("#app");
