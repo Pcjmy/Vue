@@ -1,24 +1,32 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <ul>
-      <li v-for="(item,index) in items" :key="index">{{ item }}</li>
-    </ul>
-    <button @click="change">点击</button>
+    <div @click="handleClick">{{ name }}</div>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue'
-
+import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated } from 'vue'
 export default {
   name: 'AboutView',
   setup () {
-    const items = reactive(['Apple', 'Banana', 'Cherry'])
-    function change () {
-      items[0] = 'Orange'
+    const name = ref('hello')
+    onBeforeMount(() => {
+      console.log('onBeforeMount')
+    })
+    onMounted(() => {
+      console.log('onMounted')
+    })
+    onBeforeUpdate(() => {
+      console.log('onBeforeUpdate')
+    })
+    onUpdated(() => {
+      console.log('onUpdated')
+    })
+    const handleClick = () => {
+      name.value = 'Pcjmy'
     }
-    return { items, change }
+    return { name, handleClick }
   }
 }
 </script>
