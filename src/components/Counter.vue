@@ -1,5 +1,5 @@
 <template>
-  <div @click="$emit('addOne')">{{ count }}</div>
+  <div @click="$emit('add', 2)">{{ count }}</div>
 </template>
 
 <script>

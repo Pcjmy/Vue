@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <Counter :count="count" @add-one="handleAddOne" />
+    <Counter :count="count" @add="handleAdd" />
   </div>
 </template>
 
@@ -14,10 +14,10 @@ export default {
   components: { Counter },
   setup () {
     const count = ref(1)
-    function handleAddOne () {
-      count.value += 1
+    function handleAdd (param) {
+      count.value += param
     }
-    return { count, handleAddOne }
+    return { count, handleAdd }
   }
 }
 </script>
