@@ -1,32 +1,23 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <div @click="handleClick">{{ name }}</div>
+    <Counter :count="count" @add-one="handleAddOne" />
   </div>
 </template>
 
 <script>
-import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated } from 'vue'
+import { ref } from 'vue'
+import Counter from '@/components/Counter.vue'
+
 export default {
   name: 'AboutView',
+  components: { Counter },
   setup () {
-    const name = ref('hello')
-    onBeforeMount(() => {
-      console.log('onBeforeMount')
-    })
-    onMounted(() => {
-      console.log('onMounted')
-    })
-    onBeforeUpdate(() => {
-      console.log('onBeforeUpdate')
-    })
-    onUpdated(() => {
-      console.log('onUpdated')
-    })
-    const handleClick = () => {
-      name.value = 'Pcjmy'
+    const count = ref(1)
+    function handleAddOne () {
+      count.value += 1
     }
-    return { name, handleClick }
+    return { count, handleAddOne }
   }
 }
 </script>
