@@ -1,11 +1,11 @@
 <template>
-  <div @click="$emit('add', 2)">{{ count }}</div>
+  <div @click="$emit('update:modelValue', modelValue + 3)">{{ modelValue }}</div>
 </template>
 
 <script>
 export default {
   name: 'Counter',
-  props: ['count'],
-  emits: ['add']
+  props: ['modelValue'],
+  emits: ['update:modelValue']
 }
 </script>
