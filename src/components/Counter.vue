@@ -5,6 +5,7 @@
 <script>
 export default {
   name: 'Counter',
-  props: ['count']
+  props: ['count'],
+  emits: ['add']
 }
 </script>
