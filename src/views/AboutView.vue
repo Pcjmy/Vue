@@ -1,23 +1,28 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <Counter v-model="count" />
+    <button id="show-modal" @click="showModal = true">Show Modal</button>
+    <Teleport to="body">
+      <!-- 使用这个 modal 组件，传入 prop -->
+      <modal :show="showModal" @close="showModal = false">
+        <template #header>
+          <h3>custom header</h3>
+        </template>
+      </modal>
+    </Teleport>
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
-import Counter from '@/components/Counter.vue'
+import Modal from '../components/Modal'
 
 export default {
   name: 'AboutView',
-  components: { Counter },
+  components: { Modal },
   setup () {
-    const count = ref(1)
-    function handleAdd (param) {
-      count.value += param
-    }
-    return { count, handleAdd }
+    const showModal = ref(false)
+    return { showModal }
   }
 }
 </script>
