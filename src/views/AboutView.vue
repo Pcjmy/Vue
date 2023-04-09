@@ -1,17 +1,12 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <input v-model="message">
-    <Child />
+    <component :is="tag"></component>
   </div>
 </template>
 
 <script setup>
-import { ref, provide } from 'vue'
-import Child from '../components/Child'
+import { ref } from 'vue'
 
-// by providing a ref, the GrandChild
-// can react to changes happening here.
-const message = ref('hello')
-provide('message', message)
+const tag = ref('input')
 </script>
